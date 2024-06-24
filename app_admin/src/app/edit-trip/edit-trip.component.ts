@@ -49,38 +49,27 @@ export class EditTripComponent {
       description: ['', Validators.required]
     })
 
-    this.tripDataService.getTrip(tripCode).subscribe({
-      next: (value: any) => {
-        this.trip=value;
-          // Populate our record into the form
-          this.editForm.patchValue(value[0]);
-          if(!value) {
-            this.message='No Trip Retrieved!';
-          }
-          else {
-            this.message='Trip: ' + tripCode + ' retrieved';
-          }
-          console.log(this.message);
-      },
-      error: (error:any) => {
-        console.log('Error: ' + error);
-      }
-    })
+    this.tripDataService.getTrip(tripCode)
+      .then(data => {
+        // console.log(data);
+        
+        this.editForm.patchValue(data[0]);
+        
+        console.log("patched")
+        // using editForm.setValue() will throw a console error
+      })
   }
 
   public onSubmit() {
     this.submitted = true;
 
-    if(this.editForm.valid) {
-      this.tripDataService.updateTrip(this.editForm.value).subscribe({
-        next: (value:any) => {
-          console.log(value);
-          this.router.navigate(['']);
-        },
-        error: (error:any) => {
-          console.log('Error: ' + error);
-        }
-      })
+    if(this.editForm.valid){
+      this.tripDataService.updateTrip(this.editForm.value)
+        .then( data => {
+            console.log(data);
+            
+            this.router.navigate(['list-trips']);
+        });
     }
   }
 

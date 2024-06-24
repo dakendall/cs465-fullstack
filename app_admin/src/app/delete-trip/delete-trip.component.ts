@@ -10,8 +10,6 @@ import { TripDataService } from '../services/trip-data.service';
   styleUrl: './delete-trip.component.css'
 })
 export class DeleteTripComponent implements OnInit {
-  message : string = '';
-
   constructor(
     private router: Router,
     private tripService: TripDataService
@@ -20,22 +18,18 @@ export class DeleteTripComponent implements OnInit {
   ngOnInit() {
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
-      alert("Something is wrong, couldn't find where I stashed the tripCode!");
+      alert("Something wrong, couldn't find where I stashed the tripCode!");
       this.router.navigate(['']);
       return;
     }
 
     console.log("DeleteTripComponent found tripCode " + tripCode);
 
-    this.tripService.deleteTrip(tripCode).subscribe({
-      next: (value:any) => {
-        console.log(value);
-        this.router.navigate(['']);
-      },
-      error: (error:any) => {
-        console.log('Error: ' + error);
-      }
-    });
+    this.tripService.deleteTrip(tripCode)
+      .then( data => {
+        console.log(data);
+        this.router.navigate(['list-trips']);
+      });
   }
 
 }

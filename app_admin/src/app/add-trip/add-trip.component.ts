@@ -38,17 +38,13 @@ export class AddTripComponent implements OnInit {
   }
 
   public onSubmit(){
-    this.submitted=true;
-    if (this.addForm.valid) {
-      this.tripService.addTrip(this.addForm.value).subscribe({
-        next: (data:any) => {
-          console.log(data);
-          this.router.navigate(['']);
-        },
-        error: (error:any) => {
-          console.log('Error: ' + error);
-        }
-      });
+    this.submitted = true;
+    if(this.addForm.valid){
+        this.tripService.addTrip(this.addForm.value)
+        .then( data => {
+            console.log(data);
+            this.router.navigate(['list-trips']);
+        });
     }
   }
 

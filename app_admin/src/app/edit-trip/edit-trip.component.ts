@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
@@ -12,16 +12,17 @@ import { Trip } from '../models/trip';
   templateUrl: './edit-trip.component.html',
   styleUrl: './edit-trip.component.css'
 })
-export class EditTripComponent {
+
+export class EditTripComponent implements OnInit {
   public editForm!: FormGroup;
-  trip!: Trip;
-  submitted=false;
+  trip!: Trip; 
+  submitted = false; 
   message : string = '';
 
-  constructor(
-    private FormBuilder: FormBuilder,
-    private router: Router,
-    private tripDataService: TripDataService
+  constructor( 
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private tripDataService: TripDataService 
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class EditTripComponent {
     console.log('EditTripComponent::ngOnInit');
     console.log('tripcode: ' + tripCode);
 
-    this.editForm = this.FormBuilder.group({
+    this.editForm = this.formBuilder.group({
       _id:[],
       code: [tripCode, Validators.required],
       name: ['', Validators.required],
@@ -49,30 +50,41 @@ export class EditTripComponent {
       description: ['', Validators.required]
     })
 
-    this.tripDataService.getTrip(tripCode)
-      .then(data => {
-        // console.log(data);
-        
-        this.editForm.patchValue(data[0]);
-        
-        console.log("patched")
-        // using editForm.setValue() will throw a console error
-      })
+    this.tripDataService.getTrip(tripCode).subscribe({
+      next: (value: any) => {
+        this.trip=value;
+          // Populate our record into the form
+          this.editForm.patchValue(value[0]);
+          if(!value) {
+            this.message='No Trip Retrieved!';
+          }
+          else {
+            this.message='Trip: ' + tripCode + ' retrieved';
+          }
+          console.log(this.message);
+      },
+      error: (error:any) => {
+        console.log('Error: ' + error);
+      }
+    })
   }
 
   public onSubmit() {
     this.submitted = true;
 
-    if(this.editForm.valid){
-      this.tripDataService.updateTrip(this.editForm.value)
-        .then( data => {
-            console.log(data);
-            
-            this.router.navigate(['list-trips']);
-        });
+    if(this.editForm.valid) {
+      this.tripDataService.updateTrip(this.editForm.value).subscribe({
+        next: (value:any) => {
+          console.log(value);
+          this.router.navigate(['']);
+        },
+        error: (error:any) => {
+          console.log('Error: ' + error);
+        }
+      })
     }
   }
 
+  // get the form short name to access the form fields 
   get f() { return this.editForm.controls; }
-
 }

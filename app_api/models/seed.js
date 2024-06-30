@@ -1,4 +1,3 @@
-//Bring in the DB connection and the Trip schema
 const Mongoose = require('./db');
 const Trip = require('./travlr');
 

@@ -5,7 +5,7 @@ You are a software developer working for a software development company. Your su
 “We are looking to create a travel booking site for our customers to book travel packages. Our customers must be able to create an account, search for travel packages by location and price point, and book reservations with our travel agency. Customers must also be able to visit our website regularly before their trip to see their itineraries. We are also seeking to have an admin-only site where Travlr Getaways administrators can maintain a customer base, available trip packages, and pricing for each item and package.”
 
 ### Architecture
-The development for the frontend for the admin SPA website was for more complex compared to the client-side website. There were more moving parts since everything was in different components. The client-side was simpler because each page was built separately. MongoDB was a great resource to use for storing, querying, and managing data on the backend. MongoDB is flexible  and reliable with a highly scalable database.
+The development for the front end for the admin SPA website was for more complex compared to the client-side website. There were more moving parts since everything was in different components. The client-side was simpler because each page was built separately. MongoDB was a great resource to use for storing, querying, and managing data on the backend. MongoDB is flexible and reliable with a highly scalable database.
 
 ### Functionality
 JavaScript is a programming language while JSON is a data format. JSON is derived from JavaScript. JSON is a lightweight format and easy to read and understand. It can be used to store and transport data, mostly used to send data from a server to a webpage. JavaScript objects are dependent on JavaScript while JSON is supported by multiple programming languages. We refactored the header and footer on the client-side pages. There are reusable functions that can be called multiple times such as searching for all trips or a specific trip.
@@ -15,3 +15,6 @@ There were several ways that I tested the API endpoints. When it came to the cli
 
 ### Reflection
 I have learned more about the different ways to build a website, such as the traditional way and SPA. I have more knowledge about building different components and how they connect. This course has helped me understand ways to improve my code and keep it organized when I refactored the code. I was able to learn more about adding security to the website such as only an admin that is logged in can add, update, or delete a trip.
+
+### Preview
+

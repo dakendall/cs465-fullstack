@@ -17,4 +17,33 @@ There were several ways that I tested the API endpoints. When it came to the cli
 I have learned more about the different ways to build a website, such as the traditional way and SPA. I have more knowledge about building different components and how they connect. This course has helped me understand ways to improve my code and keep it organized when I refactored the code. I was able to learn more about adding security to the website such as only an admin that is logged in can add, update, or delete a trip.
 
 ### Preview
+Website
+![website](https://github.com/user-attachments/assets/c54a7639-20a9-4d41-b441-5e41c5b4b611)
+![website 2](https://github.com/user-attachments/assets/8d5a8ff1-3b5c-46ea-a90a-bdfd827cf1e1)
+
+Admin Page
+![admin page](https://github.com/user-attachments/assets/995ea32e-a428-427a-ad3f-54c032ee4eb8)
+
+Login
+![login](https://github.com/user-attachments/assets/c7782075-8c00-40d8-b099-bb387e6ee308)
+![admin page login](https://github.com/user-attachments/assets/a945744c-ed40-4eaf-bf8e-65004ff08304)
+![admin page login 2](https://github.com/user-attachments/assets/3ba22822-6c3b-413e-a22a-928fc4182559)
+
+Edit Trip
+![edit trip](https://github.com/user-attachments/assets/0e1357f8-fad8-43f3-9374-b6d26831a870)
+![edit trip 2](https://github.com/user-attachments/assets/2609aae4-de68-4288-947f-3c791092ead9)
+
+Delete Trip
+![delete trip](https://github.com/user-attachments/assets/ae4acc84-70db-4557-9354-c8e797824df9)
+![delete trip 2](https://github.com/user-attachments/assets/c54308b7-a1dc-4ed6-b935-b4d855005d96)
+![delete trip 3](https://github.com/user-attachments/assets/c87b82df-79c4-4d40-91d5-57cfd07cb977)
+
+Add Trip
+![add trip](https://github.com/user-attachments/assets/cf8429e0-463e-44f4-b1c6-51ce8f63ae1b)
+![add trip 2](https://github.com/user-attachments/assets/01656b63-cdad-4f73-b7c4-bf1f1757de72)
+![add trip 3](https://github.com/user-attachments/assets/13e518ec-ac35-4aad-91c3-6dfe40b34958)
+
+Admin Page
+![admin page logout](https://github.com/user-attachments/assets/5008a8a6-f2e1-4fc4-855d-290ce5354c34)
+
 
